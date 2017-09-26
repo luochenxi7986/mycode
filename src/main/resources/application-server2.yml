@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 20011
+
+eureka: 
+  environment: prod
+  datacenter: cloud
+  instance:
+    hostname: service-register-center-server2
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://server1:20010/eureka/
+  server:
+#    enable-self-preservation: false
+    enableSelfPreservation: false
+    evictionIntervalTimerInMs: 60000
+#    eviction-interval-timer-in-ms: 60000
+
+
+
+#server.port=8761
+#注册中心默认端口就是8761，也可通过下面的方式定义其他端口
+#eureka.client.serviceUrl.defaultZone=http://localhost:${server.port}/eureka/
+#eureka.client.registerWithEureka=false
+#eureka.client.fetchRegistry=false
+
+# 设为false，关闭自我保护
+#eureka.server.enable-self-preservation=false
+ # 清理间隔（单位毫秒，默认是60*1000）
+# eureka.servers.eviction-interval-timer-in-ms=5000
